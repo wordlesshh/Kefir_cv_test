@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  web:
+    build:
+        context: ./src
+        dockerfile: Dockerfile
+    volumes:
+      - ./src:/code
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.example
+    depends_on:
+      - db
+
+  pgsql:
+      image: postgres:12
+      volumes:
+          - ./data/postgresql:/data/postgresql
+      ports:
+          - "5433:5432"
+      environment:
+          POSTGRES_PASSWORD: kefir
+          POSTGRES_USER: kefir
+          POSTGRES_DB: kefir_cv_test
+          PGDATA: /data/postgresql
+
+      restart: always

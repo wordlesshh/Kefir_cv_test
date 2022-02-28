@@ -1,0 +1,21 @@
+db:
+  scheme: !ENV '${db_scheme}'
+  username: !ENV '${db_user_name}'
+  password: !ENV '${db_password}'
+  host: !ENV '${db_docker_host}'
+  port: !ENV '${db_port}'
+  db_name: !ENV '${db_name}'
+
+db_admin:
+  first_name: 'admin'
+  last_name: 'admin'
+  email: 'admin@admin.admin'
+  is_admin: True
+  password: !ENV '${db_admin_password}'
+
+web:
+  host: 0.0.0.0
+  port: 8080
+  jwt_secret: !ENV '${jwt_secret}'
+  jwt_algorithm: !ENV '${jwt_algorithm}'
+  jwt_lifespan: 86400
