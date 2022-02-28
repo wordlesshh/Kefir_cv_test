@@ -70,5 +70,5 @@ if __name__ == "__main__":
     app.run(
         host=di.config['web']['host'],
         port=di.config['web']['port'],
-        debug=True,
+        debug=False,
     )
